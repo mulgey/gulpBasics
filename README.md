@@ -1,2 +1,2 @@
-# gulpBasics
-Learning task runner Gulp with Huston Hedinger
+# treehouse-gulp-course
+Code for my Treehouse Gulp.js course!  June, 2015.
