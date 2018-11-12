@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/mulgey/gulpBasics#readme",
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.3.4",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.4.0",
