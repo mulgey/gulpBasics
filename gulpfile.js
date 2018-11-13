@@ -34,8 +34,9 @@ gulp.task("compileSass", function () {
         .pipe(gulp.dest('css')); // sass ı da buraya pasla
 });
 
-gulp.task('watchSass', function () {
+gulp.task('watchFiles', function () {
     gulp.watch('scss/**/*.scss', ["compileSass"]); // " scss --> tüm klasörler --> uzantısı .scss olanlar " ı takip edip compileSass görevini uygula
+    gulp.watch('js/main.js', ['concatJscripts']) // 2 ayrı watch komutu, sadece gerekli olanı çalıştırır
 });
 
 gulp.task('clean', function () {
@@ -46,6 +47,9 @@ gulp.task("build", ["concatJScripts", "minifyScripts", "compileSass"], function(
     return gulp.src(["css/application.css", "js/app.min.js", "index.html", "img/**", "fonts/**"], { base: "./"}) // işlem esnasında bu dosyaları al // dizin yapısını koru
     .pipe(gulp.dest('dist')); // şu klasöre kaydet
 });
+
+
+gulp.task("serve", ['watchFiles']);
 
 gulp.task("default", ["clean"], function () { // önce bir temizle eskileri
     gulp.start('build'); // sonra yukarıdaki toplu işlemi gerçekleştir
